@@ -38,7 +38,12 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """
+        """ Returns a page of the dataset.
+        Args:
+            page (int): The page number.
+            page_size (int): The page size.
+        Returns:
+            List[List]: The page of the dataset.
         """
         page_assert = "Page must be an integer greater than 0"
         page_sz_assert = "Page size must be an integer greater than 0"
@@ -52,14 +57,21 @@ class Server:
         return dataset[start_index:end_index]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
-        dataset_page = self.get_page(page, page_size)
+        """ Returns a page of the dataset.
+        Args:
+            page (int): The page number.
+            page_size (int): The page size.
+        Returns:
+            List[List]: The page of the dataset.
+        """
+        data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
-        next_page = page + 1 if page*page_size < len(self.dataset()) else None
+
         hyper_data = {
-            "page_size": len(dataset_page),
+            "page_size": page_size if page_size <= len(data) else len(data),
             "page": page,
-            "data": dataset_page,
-            "next_page": next_page,
+            "data": data,
+            "next_page": page + 1 if page + 1 <= total_pages else None,
             "prev_page": page - 1 if page > 1 else None,
             "total_pages": total_pages
         }
