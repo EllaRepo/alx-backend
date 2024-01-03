@@ -38,7 +38,9 @@ class LRUCache(BaseCaching):
         Returns:
             returns a value
         """
-        if key is not None:
+        if key is not None and key in self.cache_data.keys():
+            del self.lru[self.lru.index(key)]
+            self.lru.append(key)
             return self.cache_data.get(key)
         else:
             return None
