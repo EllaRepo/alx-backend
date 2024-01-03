@@ -14,6 +14,8 @@ class LFUCache(BaseCaching):
         super().__init__()
 
     def lfu_algo(self):
+        """LFU algorithm
+        """
         lfu_key, lfu_value = None, 0
         for key in self.lfu:
             if lfu_key is None:
