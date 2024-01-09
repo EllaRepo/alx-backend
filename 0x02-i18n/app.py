@@ -3,7 +3,7 @@
 """
 import pytz
 from flask import Flask, g, request, render_template
-from flask_babel import Babel, _
+from flask_babel import Babel
 from typing import Union, Dict
 
 
@@ -87,7 +87,7 @@ def get_timezone() -> str:
 def index():
     """Renders a basic html template
     """
-    return render_template('7-index.html')
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
