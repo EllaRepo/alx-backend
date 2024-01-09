@@ -4,7 +4,7 @@
 from flask import Flask
 from flask import request
 from flask import render_template
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 
 class Config(object):
