@@ -4,7 +4,7 @@
 from flask import Flask
 from flask import g, request
 from flask import render_template
-from flask_babel import Babel, _
+from flask_babel import Babel
 from typing import Union, Dict
 
 
