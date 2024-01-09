@@ -81,7 +81,7 @@ def get_timezone() -> str:
 def index():
     """Renders a basic html template
     """
-    return render_template('6-index.html')
+    return render_template('7-index.html')
 
 
 if __name__ == '__main__':
